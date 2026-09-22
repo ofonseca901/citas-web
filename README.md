@@ -1,21 +1,32 @@
-# citas-web
+# citas-web — incremento S2
 
-Cliente React + TypeScript del portal de citas, importado del prototipo aprobado y conectado directamente a `citas-api`.
+React + TypeScript + Vite con formularios de login y registro, mensajes de error, vista de sesión y logout. Consume Spring Boot directamente por REST, sin Express/BFF.
 
-## Desarrollo local
+## Ejecutar
+Con Node 24:
 
-1. Copia `.env.example` a `.env.local` si la API no está en `http://localhost:8080`.
-2. Ejecuta `npm install`.
-3. Ejecuta `npm run dev` y abre `http://localhost:5173`.
-
-El access JWT vive solo en memoria. El refresh JWT se recibe como cookie `HttpOnly` y se rota al restaurar la sesión. Las peticiones de login, refresh y logout incluyen credenciales y `X-Requested-With: XMLHttpRequest` conforme al contrato de seguridad.
-
-## Verificación
-
-```bash
-npm run lint
-npm test
-npm run build
+```text
+npm ci
+npm run dev
 ```
 
-Las pantallas de agenda conservan datos sintéticos del prototipo hasta que sus HU backend sean implementadas. Recuperación de contraseña permanece fuera del alcance.
+O desde la raíz del workspace:
+
+```powershell
+./scripts/start-s2.ps1
+```
+
+Abrir http://localhost:5173. API por defecto en http://localhost:8080. Configurar `VITE_API_URL` en un `.env` local si cambia. El backend debe permitir el origen del navegador en `FRONTEND_ORIGIN`.
+
+## Verificación
+```text
+npm run build
+npm run typecheck
+```
+
+Probar con datos ficticios: crear cuenta, iniciar sesión y cerrarla. La sesión vive solo en memoria; recargar vuelve al login. No guardar tokens en almacenamiento del navegador.
+
+## Procedencia y alcance
+Esta interfaz fue creada localmente durante S2 como propuesta revisable. **No fue importada desde Stitch/Google AI Studio y aún no tiene aprobación visual del usuario.** Si el curso exige ese proceso, se debe completar y reconciliar el diseño/exportación antes de cerrar el entregable.
+
+No incluye reserva de citas ni recuperación de contraseña. Wiki y contrato global en `../citas-api/docs/wiki/llm-wiki/`.
