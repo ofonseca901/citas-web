@@ -1,0 +1,8 @@
+.calendar{margin:1rem 0;background:#fff;border:1px solid #eadbe0;border-radius:18px;padding:1rem;max-width:640px}
+.calendar-head{display:flex;align-items:center;justify-content:space-between;text-transform:capitalize;margin-bottom:.75rem}
+.calendar-head button{padding:.35rem .75rem}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.35rem;text-align:center}
+.calendar-weekday{font-size:.75rem;color:#737176;font-weight:800;display:grid;place-items:center;min-height:2rem}
+.calendar-grid button{min-height:44px;padding:.3rem;background:#f8f4f5;color:#29262a}
+.calendar-grid button.selected{outline:3px solid #97113a;outline-offset:1px}
+.calendar-grid button:disabled{cursor:not-allowed;background:#f1eeee;color:#aaa;transform:none;box-shadow:none}
